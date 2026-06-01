@@ -70,7 +70,26 @@ section{
   backdrop-filter:blur(10px);
   box-shadow:0 0 40px #7b8cff55;
 }
+.bienvenidaCaja{
+  animation:entrada 2s ease;
+}
 
+.miniTexto{
+  font-size:26px;
+  color:#dbe2ff;
+  letter-spacing:2px;
+}
+
+@keyframes entrada{
+  from{
+    opacity:0;
+    transform:scale(.9) translateY(40px);
+  }
+  to{
+    opacity:1;
+    transform:scale(1) translateY(0);
+  }
+}
 h1{
   font-size:55px;
   margin:10px 0;
@@ -231,12 +250,26 @@ button{
 <div class="estrellas"></div>
 <div class="nebula"></div>
 
-<section>
-  <div class="contenido">
-    <h1>🌌 El universo que encontré en ti</h1>
-    <p>Para Maiberth, mi personita especial.</p>
-    <p>Entre millones de estrellas, el destino me llevó hasta ti.</p>
-    <button onclick="document.getElementById('historia').scrollIntoView({behavior:'smooth'})">🚀 Iniciar nuestro viaje</button>
+<section class="bienvenida">
+  <div class="contenido bienvenidaCaja">
+    <p class="miniTexto">Hola Maiberth...</p>
+
+    <h1>🌌 Antes de continuar</h1>
+
+    <p>
+      quiero invitarte a recorrer un pequeño universo que hice para ti,
+      con recuerdos, estrellas, sueños y todo el amor que siento por ti.
+    </p>
+
+    <p>
+      Este viaje empieza aquí, pero habla de nosotros dos:
+      de Micheline y Maiberth, de la distancia, del destino
+      y de estos 5 meses orbitando juntos.
+    </p>
+
+    <button onclick="document.getElementById('historia').scrollIntoView({behavior:'smooth'})">
+      🚀 Iniciar nuestro viaje
+    </button>
   </div>
 </section>
 
