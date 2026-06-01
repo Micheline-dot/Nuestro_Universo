@@ -144,7 +144,56 @@ button{
   border-radius:25px;
   border:1px solid #ffffff33;
 }
+.constelacion{
+  position:relative;
+  height:420px;
+  margin-top:30px;
+  border-radius:30px;
+  background:radial-gradient(circle,#ffffff12,transparent 70%);
+  overflow:hidden;
+}
 
+.estrellaBtn{
+  position:absolute;
+  background:none;
+  border:none;
+  font-size:42px;
+  cursor:pointer;
+  animation:pulso 1.8s infinite alternate;
+  box-shadow:none;
+}
+
+.estrellaBtn:nth-child(1){top:15%;left:15%}
+.estrellaBtn:nth-child(2){top:55%;left:25%}
+.estrellaBtn:nth-child(3){top:25%;left:48%}
+.estrellaBtn:nth-child(4){top:65%;left:62%}
+.estrellaBtn:nth-child(5){top:18%;left:78%}
+
+@keyframes pulso{
+  from{transform:scale(1);filter:drop-shadow(0 0 5px white)}
+  to{transform:scale(1.25);filter:drop-shadow(0 0 20px #fff)}
+}
+
+.recuerdo{
+  display:none;
+  margin-top:30px;
+  padding:25px;
+  border-radius:25px;
+  background:rgba(255,255,255,.15);
+  animation:aparecer .8s ease;
+}
+
+.recuerdo img{
+  width:100%;
+  max-width:420px;
+  border-radius:25px;
+  box-shadow:0 0 35px #ffffff77;
+}
+
+@keyframes aparecer{
+  from{opacity:0;transform:translateY(20px)}
+  to{opacity:1;transform:translateY(0)}
+}
 .luna{
   width:180px;
   height:180px;
@@ -226,39 +275,24 @@ button{
 <section>
   <div class="contenido">
     <h2>🌠 Nuestra constelación de recuerdos</h2>
+    <p>Toca cada estrella, Maiberth. Cada una guarda un pedacito de nosotros.</p>
 
-    <div class="tarjetas">
-      <div class="tarjeta">
-        <h3>💙 El primer “te amo”</h3>
-        <p>
-          Ese día me viniste a dejar a mi casa. Querías decirme algo, pero no te animabas…
-          hasta que por fin me dijiste que me amabas.
-        </p>
-      </div>
+    <div class="constelacion">
+      <button class="estrellaBtn" onclick="abrirRecuerdo('fotos/4967658148239969714.jpg','El amor en los pequeños momentos','Esta foto guarda uno de esos instantes simples, pero llenos de amor. Un beso, una sonrisa y la certeza de que contigo todo se siente bonito.')">⭐</button>
 
-      <div class="tarjeta">
-        <h3>🍫 El recuerdo más gracioso</h3>
-        <p>
-          Cuando fuiste a pedir permiso a mi mamá para salir conmigo y llevaste chocolates.
-          Temblabas tanto que mi mamá y yo nos reímos, y ella te dijo: “no tiembles”.
-        </p>
-      </div>
+      <button class="estrellaBtn" onclick="abrirRecuerdo('fotos/4967658148239969715.jpg','Nuestro cariño más sincero','Porque aunque estemos lejos, cada recuerdo contigo se siente cerca del corazón.')">⭐</button>
 
-      <div class="tarjeta">
-        <h3>🧬 Tú y la ciencia</h3>
-        <p>
-          Eres profesor de Biología, pero para mí eres la prueba más hermosa de que la vida
-          también tiene magia.
-        </p>
-      </div>
+      <button class="estrellaBtn" onclick="abrirRecuerdo('fotos/4967658148239969717.jpg','Cuando nuestras miradas hablaron','Hay miradas que dicen más que mil palabras. La tuya siempre me hace sentir en casa.')">⭐</button>
 
-      <div class="tarjeta">
-        <h3>🏡 Nuestro sueño</h3>
-        <p>
-          Casarnos, formar una familia, construir nuestra casa, tener nuestras propias cositas,
-          vivir juntos y tener una vida estable.
-        </p>
-      </div>
+      <button class="estrellaBtn" onclick="abrirRecuerdo('fotos/4967658148239969719.jpg','Sol y Luna','Somos dos astros diferentes, pero encontramos una misma órbita. Tú y yo, incluso lejos, seguimos conectados.')">⭐</button>
+
+      <button class="estrellaBtn" onclick="abrirRecuerdo('fotos/4967658148239969724.jpg','Mi lugar favorito','No importa el lugar, si estoy contigo, siento que el universo está completo.')">⭐</button>
+    </div>
+
+    <div class="recuerdo" id="recuerdo">
+      <img id="fotoRecuerdo" src="" alt="Recuerdo">
+      <h3 id="tituloRecuerdo"></h3>
+      <p id="textoRecuerdo"></p>
     </div>
   </div>
 </section>
@@ -310,6 +344,12 @@ button{
 </section>
 
 <script>
+  function abrirRecuerdo(foto,titulo,texto){
+  document.getElementById("recuerdo").style.display="block";
+  document.getElementById("fotoRecuerdo").src=foto;
+  document.getElementById("tituloRecuerdo").innerHTML=titulo;
+  document.getElementById("textoRecuerdo").innerHTML=texto;
+}
 function mostrarCarta(){
   document.getElementById("carta").style.display="block";
 }
