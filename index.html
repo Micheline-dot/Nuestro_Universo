@@ -3,100 +3,336 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Nuestro Universo 💙</title>
+<title>El universo que encontré en ti 💙</title>
 
 <style>
+*{box-sizing:border-box}
+
 body{
-    margin:0;
-    height:100vh;
-    overflow:hidden;
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    background:linear-gradient(to bottom,#000010,#020225,#06063f);
-    color:white;
-    font-family:Arial,sans-serif;
-    text-align:center;
+  margin:0;
+  font-family:'Segoe UI',Arial,sans-serif;
+  background:#020014;
+  color:white;
+  overflow-x:hidden;
+}
+
+section{
+  min-height:100vh;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  text-align:center;
+  padding:60px 20px;
+  position:relative;
 }
 
 .estrellas{
-    position:absolute;
-    width:100%;
-    height:100%;
+  position:fixed;
+  inset:0;
+  background:
+    radial-gradient(circle at 20% 20%,#ffffff99 1px,transparent 2px),
+    radial-gradient(circle at 80% 30%,#ffffff88 1px,transparent 2px),
+    radial-gradient(circle at 50% 70%,#ffffff77 1px,transparent 2px),
+    linear-gradient(to bottom,#020014,#05052e,#110433);
+  background-size:120px 120px,180px 180px,240px 240px,100%;
+  animation:mover 25s linear infinite;
+  z-index:-3;
 }
 
-.estrella{
-    position:absolute;
-    width:3px;
-    height:3px;
-    background:white;
-    border-radius:50%;
-    animation:brillar 2s infinite alternate;
+@keyframes mover{
+  from{background-position:0 0}
+  to{background-position:400px 600px}
 }
 
-@keyframes brillar{
-    from{opacity:0.3;}
-    to{opacity:1;}
+.nebula{
+  position:fixed;
+  width:600px;
+  height:600px;
+  border-radius:50%;
+  background:radial-gradient(circle,#7b2cff55,transparent 70%);
+  filter:blur(40px);
+  top:10%;
+  left:5%;
+  z-index:-2;
+  animation:flotar 8s ease-in-out infinite alternate;
+}
+
+@keyframes flotar{
+  from{transform:translateY(0)}
+  to{transform:translateY(40px)}
 }
 
 .contenido{
-    z-index:10;
+  max-width:900px;
+  background:rgba(255,255,255,.08);
+  padding:35px;
+  border-radius:30px;
+  backdrop-filter:blur(10px);
+  box-shadow:0 0 40px #7b8cff55;
 }
 
 h1{
-    font-size:60px;
-    margin-bottom:20px;
+  font-size:55px;
+  margin:10px 0;
+}
+
+h2{
+  font-size:38px;
+  color:#cdd6ff;
 }
 
 p{
-    font-size:22px;
+  font-size:22px;
+  line-height:1.6;
 }
 
 button{
-    margin-top:20px;
-    padding:15px 30px;
-    border:none;
-    border-radius:30px;
-    background:#5f7cff;
-    color:white;
-    font-size:18px;
-    cursor:pointer;
+  padding:15px 30px;
+  border:none;
+  border-radius:40px;
+  background:linear-gradient(90deg,#6b7cff,#ba68ff);
+  color:white;
+  font-size:18px;
+  cursor:pointer;
+  box-shadow:0 0 25px #8b8cffaa;
 }
 
-button:hover{
-    transform:scale(1.05);
+.planetas{
+  display:flex;
+  justify-content:center;
+  gap:80px;
+  flex-wrap:wrap;
+  margin-top:40px;
+}
+
+.planeta{
+  width:170px;
+  height:170px;
+  border-radius:50%;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  font-weight:bold;
+  font-size:20px;
+  box-shadow:0 0 40px #fff8;
+  animation:orbitar 4s ease-in-out infinite alternate;
+}
+
+.micheline{
+  background:radial-gradient(circle,#ffb6e6,#7b2cff,#190033);
+}
+
+.maiberth{
+  background:radial-gradient(circle,#8ee7ff,#2d68ff,#07113f);
+}
+
+@keyframes orbitar{
+  from{transform:translateY(0)}
+  to{transform:translateY(-25px)}
+}
+
+.tarjetas{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+  gap:20px;
+  margin-top:30px;
+}
+
+.tarjeta{
+  background:rgba(255,255,255,.12);
+  padding:25px;
+  border-radius:25px;
+  border:1px solid #ffffff33;
+}
+
+.luna{
+  width:180px;
+  height:180px;
+  border-radius:50%;
+  background:radial-gradient(circle at 30% 30%,#fff,#d8d8d8,#777);
+  margin:30px auto;
+  box-shadow:0 0 60px #ffffffaa;
+  cursor:pointer;
+}
+
+.carta{
+  display:none;
+  margin-top:25px;
+  background:rgba(255,255,255,.15);
+  padding:25px;
+  border-radius:25px;
+}
+
+.final{
+  font-size:30px;
+  font-weight:bold;
+  color:#fff;
+}
+
+@media(max-width:600px){
+  h1{font-size:38px}
+  h2{font-size:30px}
+  p{font-size:18px}
 }
 </style>
 </head>
 
 <body>
 
-<div class="estrellas" id="estrellas"></div>
+<div class="estrellas"></div>
+<div class="nebula"></div>
 
-<div class="contenido">
-<h1>🌌 Nuestro Universo</h1>
+<section>
+  <div class="contenido">
+    <h1>🌌 El universo que encontré en ti</h1>
+    <p>Para Maiberth, mi personita especial.</p>
+    <p>Entre millones de estrellas, el destino me llevó hasta ti.</p>
+    <button onclick="document.getElementById('historia').scrollIntoView({behavior:'smooth'})">🚀 Iniciar nuestro viaje</button>
+  </div>
+</section>
 
-<p>
-Aunque nos separen miles de kilómetros,
-seguimos orbitando el mismo universo.
-💙
-</p>
+<section id="historia">
+  <div class="contenido">
+    <h2>✨ Donde comenzó nuestra historia</h2>
+    <p>
+      Nos conocimos en un campamento a Tarija. Tal vez en ese momento no hablamos mucho,
+      tal vez solo éramos dos personas conocidas, cercanas en el mismo lugar pero todavía lejanas en el corazón.
+    </p>
+    <p>
+      Pero el universo ya estaba haciendo su trabajo. A finales del 2025 empezamos a coincidir,
+      a conversar, a acercarnos poco a poco… hasta que el 1 de enero de 2026 nació lo más bonito:
+      nosotros.
+    </p>
+  </div>
+</section>
 
-<button onclick="alert('Bienvenido a nuestro viaje por las estrellas ✨')">
-🚀 Comenzar viaje
-</button>
-</div>
+<section>
+  <div class="contenido">
+    <h2>🪐 Dos planetas, una misma órbita</h2>
+    <p>
+      Aunque estemos lejos, hay algo invisible que nos mantiene unidos:
+      el cariño, la fe, los sueños y este amor que sigue creciendo.
+    </p>
+
+    <div class="planetas">
+      <div class="planeta micheline">Micheline</div>
+      <div class="planeta maiberth">Maiberth</div>
+    </div>
+
+    <p>La distancia existe para los cuerpos, no para las almas que se aman. 💙</p>
+  </div>
+</section>
+
+<section>
+  <div class="contenido">
+    <h2>🌠 Nuestra constelación de recuerdos</h2>
+
+    <div class="tarjetas">
+      <div class="tarjeta">
+        <h3>💙 El primer “te amo”</h3>
+        <p>
+          Ese día me viniste a dejar a mi casa. Querías decirme algo, pero no te animabas…
+          hasta que por fin me dijiste que me amabas.
+        </p>
+      </div>
+
+      <div class="tarjeta">
+        <h3>🍫 El recuerdo más gracioso</h3>
+        <p>
+          Cuando fuiste a pedir permiso a mi mamá para salir conmigo y llevaste chocolates.
+          Temblabas tanto que mi mamá y yo nos reímos, y ella te dijo: “no tiembles”.
+        </p>
+      </div>
+
+      <div class="tarjeta">
+        <h3>🧬 Tú y la ciencia</h3>
+        <p>
+          Eres profesor de Biología, pero para mí eres la prueba más hermosa de que la vida
+          también tiene magia.
+        </p>
+      </div>
+
+      <div class="tarjeta">
+        <h3>🏡 Nuestro sueño</h3>
+        <p>
+          Casarnos, formar una familia, construir nuestra casa, tener nuestras propias cositas,
+          vivir juntos y tener una vida estable.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="contenido">
+    <h2>🌙 La luna guarda una carta para ti</h2>
+    <p>Toca la luna, Maiberth.</p>
+
+    <div class="luna" onclick="mostrarCarta()"></div>
+
+    <div class="carta" id="carta">
+      <p>
+        Maiberth:  
+        si pudiera elegir cualquier lugar del universo para estar,
+        seguiría eligiendo donde estés tú.
+      </p>
+      <p>
+        Gracias por estos 5 meses, por tu ternura, por tu forma de quererme
+        y por hacerme sentir que incluso a la distancia seguimos cerca.
+      </p>
+      <p>
+        Te amo.  
+        — Micheline 💙
+      </p>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="contenido">
+    <h2>⏳ Nuestra próxima cercanía</h2>
+    <p>Tal vez nos veamos el 6 o 7 de junio, y mi corazón ya está contando los días.</p>
+    <p id="contador" class="final"></p>
+  </div>
+</section>
+
+<section>
+  <div class="contenido">
+    <h2>💫 5 meses orbitando juntos</h2>
+    <p class="final">
+      Aunque nos separen miles de kilómetros, seguimos orbitando el mismo universo.
+    </p>
+    <p>
+      Feliz aniversario, Maiberth.  
+      Desde el 1 de enero de 2026, mi universo tiene tu nombre.
+    </p>
+  </div>
+</section>
 
 <script>
-const contenedor=document.getElementById("estrellas");
-
-for(let i=0;i<250;i++){
-let estrella=document.createElement("div");
-estrella.className="estrella";
-estrella.style.left=Math.random()*100+"%";
-estrella.style.top=Math.random()*100+"%";
-contenedor.appendChild(estrella);
+function mostrarCarta(){
+  document.getElementById("carta").style.display="block";
 }
+
+const fecha = new Date("June 7, 2026 00:00:00").getTime();
+
+setInterval(function(){
+  const ahora = new Date().getTime();
+  const distancia = fecha - ahora;
+
+  if(distancia < 0){
+    document.getElementById("contador").innerHTML = "Ya casi estamos juntos otra vez 💙";
+    return;
+  }
+
+  const dias = Math.floor(distancia / (1000 * 60 * 60 * 24));
+  const horas = Math.floor((distancia % (1000 * 60 * 60 * 24))/(1000 * 60 * 60));
+  const minutos = Math.floor((distancia % (1000 * 60 * 60))/(1000 * 60));
+  const segundos = Math.floor((distancia % (1000 * 60))/1000);
+
+  document.getElementById("contador").innerHTML =
+  dias + " días, " + horas + " horas, " + minutos + " minutos y " + segundos + " segundos 💙";
+},1000);
 </script>
 
 </body>
