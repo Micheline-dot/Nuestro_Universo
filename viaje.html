@@ -116,40 +116,127 @@ button{
   box-shadow:0 0 25px #8b8cffaa;
 }
 
-.planetas{
+.universo-planetas{
+  position:relative;
+  height:430px;
+  margin-top:40px;
   display:flex;
   justify-content:center;
-  gap:80px;
-  flex-wrap:wrap;
-  margin-top:40px;
+  align-items:center;
+  overflow:hidden;
+  border-radius:35px;
+  background:
+    radial-gradient(circle at center,#ffffff18,transparent 65%),
+    radial-gradient(circle at 20% 30%,#9b6dff25,transparent 30%),
+    radial-gradient(circle at 80% 70%,#5ccfff25,transparent 30%);
 }
 
-.planeta{
-  width:170px;
+.orbita{
+  position:absolute;
+  border:1px solid rgba(255,255,255,.25);
+  border-radius:50%;
+  animation:girar 18s linear infinite;
+}
+
+.orbita1{
+  width:340px;
   height:170px;
+}
+
+.orbita2{
+  width:470px;
+  height:230px;
+  animation-duration:26s;
+}
+
+@keyframes girar{
+  from{transform:rotate(0deg)}
+  to{transform:rotate(360deg)}
+}
+
+.planetaNuevo{
+  position:absolute;
+  width:150px;
+  height:150px;
   border-radius:50%;
   display:flex;
   justify-content:center;
   align-items:center;
   font-weight:bold;
-  font-size:20px;
-  box-shadow:0 0 40px #fff8;
-  animation:orbitar 4s ease-in-out infinite alternate;
+  color:white;
+  font-size:18px;
+  box-shadow:0 0 45px rgba(255,255,255,.55);
 }
 
-.micheline{
-  background:radial-gradient(circle,#ffb6e6,#7b2cff,#190033);
+.planetaNuevo span{
+  background:rgba(0,0,0,.35);
+  padding:8px 14px;
+  border-radius:20px;
 }
 
-.maiberth{
-  background:radial-gradient(circle,#8ee7ff,#2d68ff,#07113f);
+.planetaMicheline{
+  left:8%;
+  background:
+    radial-gradient(circle at 30% 30%,#ffd1ef,#ff69c7 35%,#7b2cff 70%,#17002e);
+  animation:acercarMicheline 6s ease-in-out infinite alternate;
 }
 
-@keyframes orbitar{
-  from{transform:translateY(0)}
-  to{transform:translateY(-25px)}
+.planetaMaiberth{
+  right:8%;
+  background:
+    radial-gradient(circle at 30% 30%,#b7f5ff,#4c8dff 35%,#1b2fff 70%,#020b3d);
+  animation:acercarMaiberth 6s ease-in-out infinite alternate;
 }
 
+@keyframes acercarMicheline{
+  from{left:8%; transform:translateY(25px)}
+  to{left:34%; transform:translateY(-15px)}
+}
+
+@keyframes acercarMaiberth{
+  from{right:8%; transform:translateY(-25px)}
+  to{right:34%; transform:translateY(15px)}
+}
+
+.corazonEspacial{
+  position:absolute;
+  font-size:55px;
+  animation:latir 1.5s ease-in-out infinite;
+  filter:drop-shadow(0 0 25px #9bbcff);
+}
+
+@keyframes latir{
+  0%,100%{transform:scale(1)}
+  50%{transform:scale(1.25)}
+}
+
+.frase-planetas{
+  margin-top:30px;
+  font-style:italic;
+  color:#e1e6ff;
+}
+
+@media(max-width:600px){
+  .universo-planetas{
+    height:360px;
+  }
+
+  .planetaNuevo{
+    width:105px;
+    height:105px;
+    font-size:14px;
+  }
+
+  @keyframes acercarMicheline{
+    from{left:4%; transform:translateY(25px)}
+    to{left:27%; transform:translateY(-10px)}
+  }
+
+  @keyframes acercarMaiberth{
+    from{right:4%; transform:translateY(-25px)}
+    to{right:27%; transform:translateY(10px)}
+  }
+}
 .tarjetas{
   display:grid;
   grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
@@ -288,20 +375,34 @@ button{
   </div>
 </section>
 
-<section>
+<section class="seccion-planetas">
   <div class="contenido">
     <h2>🪐 Dos planetas, una misma órbita</h2>
+
     <p>
-      Aunque estemos lejos, hay algo invisible que nos mantiene unidos:
-      el cariño, la fe, los sueños y este amor que sigue creciendo.
+      Micheline y Maiberth: dos mundos distintos,
+      separados por la distancia, pero unidos por una fuerza invisible
+      que ni el espacio puede romper.
     </p>
 
-    <div class="planetas">
-      <div class="planeta micheline">Micheline</div>
-      <div class="planeta maiberth">Maiberth</div>
+    <div class="universo-planetas">
+      <div class="orbita orbita1"></div>
+      <div class="orbita orbita2"></div>
+
+      <div class="planetaNuevo planetaMicheline">
+        <span>Micheline</span>
+      </div>
+
+      <div class="corazonEspacial">💙</div>
+
+      <div class="planetaNuevo planetaMaiberth">
+        <span>Maiberth</span>
+      </div>
     </div>
 
-    <p>La distancia existe para los cuerpos, no para las almas que se aman. 💙</p>
+    <p class="frase-planetas">
+      La distancia existe para los cuerpos, no para las almas que se aman.
+    </p>
   </div>
 </section>
 
