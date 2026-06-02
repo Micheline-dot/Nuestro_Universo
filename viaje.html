@@ -300,22 +300,80 @@ button{
   from{opacity:0;transform:translateY(20px)}
   to{opacity:1;transform:translateY(0)}
 }
-.luna{
-  width:180px;
-  height:180px;
-  border-radius:50%;
-  background:radial-gradient(circle at 30% 30%,#fff,#d8d8d8,#777);
-  margin:30px auto;
-  box-shadow:0 0 60px #ffffffaa;
-  cursor:pointer;
+.instruccionLuna{
+  color:#e5e8ff;
+  font-style:italic;
 }
 
-.carta{
+.lunaMagica{
+  position:relative;
+  width:190px;
+  height:190px;
+  margin:35px auto;
+  border-radius:50%;
+  cursor:pointer;
+  background:
+    radial-gradient(circle at 35% 30%,#ffffff,#eeeeff 35%,#b8b8c9 70%,#777788);
+  box-shadow:
+    0 0 35px #ffffff,
+    0 0 80px #cdd6ff,
+    0 0 130px #8b8cff;
+  animation:flotarLuna 3s ease-in-out infinite alternate;
+}
+
+.brilloLuna{
+  position:absolute;
+  inset:-25px;
+  border-radius:50%;
+  background:radial-gradient(circle,#ffffff55,transparent 70%);
+  animation:pulsoLuna 2s infinite alternate;
+}
+
+@keyframes flotarLuna{
+  from{transform:translateY(0)}
+  to{transform:translateY(-18px)}
+}
+
+@keyframes pulsoLuna{
+  from{opacity:.4;transform:scale(1)}
+  to{opacity:1;transform:scale(1.15)}
+}
+
+.cartaMagica{
   display:none;
-  margin-top:25px;
-  background:rgba(255,255,255,.15);
-  padding:25px;
-  border-radius:25px;
+  margin-top:35px;
+  padding:35px;
+  border-radius:28px;
+  background:
+    linear-gradient(135deg,rgba(255,255,255,.20),rgba(255,255,255,.08));
+  border:1px solid rgba(255,255,255,.35);
+  box-shadow:0 0 45px rgba(255,255,255,.45);
+  animation:abrirCarta 1s ease;
+}
+
+.cartaMagica h3{
+  font-size:30px;
+  color:#ffffff;
+}
+
+.cartaMagica p{
+  font-size:21px;
+}
+
+.firma{
+  font-weight:bold;
+  color:#dbe2ff;
+}
+
+@keyframes abrirCarta{
+  from{
+    opacity:0;
+    transform:translateY(30px) scale(.95);
+  }
+  to{
+    opacity:1;
+    transform:translateY(0) scale(1);
+  }
 }
 
 .final{
@@ -629,25 +687,52 @@ border-radius:20px;
 
 <section>
   <div class="contenido">
-    <h2>🌙 La luna guarda una carta para ti</h2>
-    <p>Toca la luna, Maiberth.</p>
+    <h2> Una Luna Mágica </h2>
 
-    <div class="luna" onclick="mostrarCarta()"></div>
+    <p>
+      Amorcito mío, hay palabras que no caben en una estrella…
+      por eso las guardé en la luna.
+    </p>
 
-    <div class="carta" id="carta">
+    <p class="instruccionLuna">Toca la luna para leer mi carta ✨</p>
+
+    <div class="lunaMagica" onclick="mostrarCarta()">
+      <div class="brilloLuna"></div>
+    </div>
+
+    <div class="cartaMagica" id="carta">
+      <h3>Para el amor de mi vida , el mejor novio del universo 💙</h3>
+
       <p>
-        Maiberth:  
-        si pudiera elegir cualquier lugar del universo para estar,
-        seguiría eligiendo donde estés tú.
+        Si pudiera viajar a cualquier rincón del universo,
+        seguiría eligiendo el lugar donde estés tú.
       </p>
+
       <p>
-        Gracias por estos 5 meses, por tu ternura, por tu forma de quererme
-        y por hacerme sentir que incluso a la distancia seguimos cerca.
+        Amorcito mío gracias por estos 5 meses, por cada sonrisa, por cada abrazo,por cada llamada,por cada beso, por cada detalle,por el amor que me brinda,
+        por cada momento bonito y por hacerme sentir que incluso a la distancia que
+        seguimos tan cerca.
       </p>
+
       <p>
-        Te amo.  
-        — Micheline 💙
+        Desde aquel campamento en Tarija, sin saberlo,
+        el universo y Diosito ya estaban escribiendo algo para nosotros.
       </p>
+
+      <p>
+        Hoy mi mayor sueño se ha hecho realidad, ese sueño es usted,pero aun falta cumplir el sueño del día 
+        en que nos juremos amor eterno en el altar ante los ojos de diosto sus papis, los mios, y todas las 
+        personas que formaron parte de nuestras vidas juntos , y que de alguna manera colaboraron en que esta 
+        hermosa historia empiece (las profes) podamos construir nuestra casa,nuestra familia, conseguir
+        nuestras propias cositas,con el estar juntos y ya no volver a separarnos
+        y sobre todo una vida estable juntos.
+      </p>
+
+      <p>
+        le amo infinitamente.
+      </p>
+
+      <p class="firma">— Micheline 🌌</p>
     </div>
   </div>
 </section>
