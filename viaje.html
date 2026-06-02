@@ -329,6 +329,56 @@ button{
   h2{font-size:30px}
   p{font-size:18px}
 }
+  .constelacion{
+position:relative;
+height:420px;
+margin-top:30px;
+border-radius:35px;
+overflow:hidden;
+background:
+radial-gradient(circle,#ffffff12,transparent 70%);
+}
+
+.estrellaBtn{
+position:absolute;
+background:none;
+border:none;
+font-size:50px;
+cursor:pointer;
+animation:brillo 2s infinite alternate;
+}
+
+.estrellaBtn:nth-child(1){top:15%;left:15%;}
+.estrellaBtn:nth-child(2){top:55%;left:28%;}
+.estrellaBtn:nth-child(3){top:20%;left:50%;}
+.estrellaBtn:nth-child(4){top:65%;left:65%;}
+.estrellaBtn:nth-child(5){top:25%;left:80%;}
+
+@keyframes brillo{
+from{
+transform:scale(1);
+filter:drop-shadow(0 0 5px white);
+}
+to{
+transform:scale(1.3);
+filter:drop-shadow(0 0 20px white);
+}
+}
+
+.recuerdo{
+display:none;
+margin-top:25px;
+padding:25px;
+border-radius:25px;
+background:rgba(255,255,255,.12);
+}
+
+.recuerdo img{
+width:100%;
+max-width:420px;
+border-radius:20px;
+}
+
 </style>
 </head>
 
@@ -409,26 +459,68 @@ button{
 <section>
   <div class="contenido">
     <h2>🌠 Nuestra constelación de recuerdos</h2>
-    <p>Toca cada estrella, Maiberth. Cada una guarda un pedacito de nosotros.</p>
+    <<section>
+  <div class="contenido">
+    <h2>🌠 Nuestra constelación de recuerdos</h2>
+<p>
+  Cada estrella guarda un momento especial de nuestra historia.
+  Tócalas una por una, Maiberth. ✨
+</p>
 
-    <div class="constelacion">
-      <button class="estrellaBtn" onclick="abrirRecuerdo('fotos/4967658148239969714.jpg','El amor en los pequeños momentos','Esta foto guarda uno de esos instantes simples, pero llenos de amor. Un beso, una sonrisa y la certeza de que contigo todo se siente bonito.')">⭐</button>
+<div class="constelacion">
 
-      <button class="estrellaBtn" onclick="abrirRecuerdo('fotos/4967658148239969715.jpg','Nuestro cariño más sincero','Porque aunque estemos lejos, cada recuerdo contigo se siente cerca del corazón.')">⭐</button>
+  <button class="estrellaBtn"
+  onclick="abrirRecuerdo(
+  'fotos/4967658148239969717.jpg',
+  '⭐ Campamento en Tarija',
+  'Aquí comenzó todo. Tal vez no hablamos mucho, pero el universo ya estaba preparando nuestro encuentro.')">
+  ⭐
+  </button>
 
-      <button class="estrellaBtn" onclick="abrirRecuerdo('fotos/4967658148239969717.jpg','Cuando nuestras miradas hablaron','Hay miradas que dicen más que mil palabras. La tuya siempre me hace sentir en casa.')">⭐</button>
+  <button class="estrellaBtn"
+  onclick="abrirRecuerdo(
+  'fotos/4967658148239969724.jpg',
+  '⭐ Finales de 2025',
+  'Empezamos a coincidir, a conversar y a conocernos de verdad. Poco a poco comenzamos a acercarnos.')">
+  ⭐
+  </button>
 
-      <button class="estrellaBtn" onclick="abrirRecuerdo('fotos/4967658148239969719.jpg','Sol y Luna','Somos dos astros diferentes, pero encontramos una misma órbita. Tú y yo, incluso lejos, seguimos conectados.')">⭐</button>
+  <button class="estrellaBtn"
+  onclick="abrirRecuerdo(
+  'fotos/4967658148239969714.jpg',
+  '⭐ El primer Te Amo',
+  'Ese día querías decirme algo, pero no te animabas. Hasta que finalmente me dijiste que me amabas.')">
+  ⭐
+  </button>
 
-      <button class="estrellaBtn" onclick="abrirRecuerdo('fotos/4967658148239969724.jpg','Mi lugar favorito','No importa el lugar, si estoy contigo, siento que el universo está completo.')">⭐</button>
-    </div>
+  <button class="estrellaBtn"
+  onclick="abrirRecuerdo(
+  'fotos/4967658148239969715.jpg',
+  '⭐ Los chocolates',
+  'Cuando fuiste a pedir permiso a mi mamá llevaste chocolates y temblabas tanto que terminamos riéndonos todos.')">
+  ⭐
+  </button>
 
-    <div class="recuerdo" id="recuerdo">
-      <img id="fotoRecuerdo" src="" alt="Recuerdo">
-      <h3 id="tituloRecuerdo"></h3>
-      <p id="textoRecuerdo"></p>
-    </div>
+  <button class="estrellaBtn"
+  onclick="abrirRecuerdo(
+  'fotos/4967658148239969719.jpg',
+  '⭐ Nuestro futuro',
+  'Casarnos, construir nuestro hogar, formar una familia y compartir una vida juntos.')">
+  ⭐
+  </button>
+
+</div>
+
+<div class="recuerdo" id="recuerdo">
+  <img id="fotoRecuerdo" src="">
+  <h3 id="tituloRecuerdo"></h3>
+  <p id="textoRecuerdo"></p>
+</div>
+```
+
   </div>
+</section>
+
 </section>
 
 <section>
@@ -484,6 +576,17 @@ button{
   document.getElementById("tituloRecuerdo").innerHTML=titulo;
   document.getElementById("textoRecuerdo").innerHTML=texto;
 }
+  function abrirRecuerdo(foto,titulo,texto){
+
+document.getElementById("recuerdo").style.display="block";
+
+document.getElementById("fotoRecuerdo").src=foto;
+
+document.getElementById("tituloRecuerdo").innerHTML=titulo;
+
+document.getElementById("textoRecuerdo").innerHTML=texto;
+}
+
 function mostrarCarta(){
   document.getElementById("carta").style.display="block";
 }
