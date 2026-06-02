@@ -30,20 +30,51 @@ section{
   position:fixed;
   inset:0;
   background:
-    radial-gradient(circle at 20% 20%,#ffffff99 1px,transparent 2px),
-    radial-gradient(circle at 80% 30%,#ffffff88 1px,transparent 2px),
-    radial-gradient(circle at 50% 70%,#ffffff77 1px,transparent 2px),
-    linear-gradient(to bottom,#020014,#05052e,#110433);
-  background-size:120px 120px,180px 180px,240px 240px,100%;
-  animation:mover 25s linear infinite;
+    radial-gradient(circle at 50% 50%, rgba(255,255,255,.9) 1px, transparent 2px),
+    radial-gradient(circle at 20% 30%, rgba(120,180,255,.8) 1px, transparent 3px),
+    radial-gradient(circle at 80% 20%, rgba(255,180,255,.7) 1px, transparent 3px),
+    radial-gradient(circle at 30% 80%, rgba(180,120,255,.7) 1px, transparent 3px),
+    radial-gradient(ellipse at 30% 40%, rgba(116,68,255,.45), transparent 35%),
+    radial-gradient(ellipse at 70% 60%, rgba(0,200,255,.25), transparent 35%),
+    radial-gradient(ellipse at 50% 50%, rgba(255,80,180,.18), transparent 40%),
+    linear-gradient(120deg,#020014,#050028,#14003d,#020014);
+  background-size:
+    90px 90px,
+    140px 140px,
+    190px 190px,
+    240px 240px,
+    100% 100%,
+    100% 100%,
+    100% 100%,
+    100% 100%;
+  animation:moverGalaxia 35s linear infinite;
   z-index:-3;
 }
 
-@keyframes mover{
-  from{background-position:0 0}
-  to{background-position:400px 600px}
+@keyframes moverGalaxia{
+  from{
+    background-position:
+      0 0,
+      0 0,
+      0 0,
+      0 0,
+      0 0,
+      0 0,
+      0 0,
+      0 0;
+  }
+  to{
+    background-position:
+      600px 900px,
+      -500px 700px,
+      400px -600px,
+      -300px -500px,
+      0 0,
+      0 0,
+      0 0,
+      0 0;
+  }
 }
-
 .nebula{
   position:fixed;
   width:600px;
@@ -520,23 +551,96 @@ border-radius:20px;
   cursor:pointer;
   color:white;
 }
+  .seccion-musica{
+  min-height:100vh;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+}
+
+.musicaCaja{
+  text-align:center;
+}
+
+.botonMusica{
+  display:inline-block;
+  position:static;
+  margin-top:25px;
+}
+  .galaxia{
+  position:fixed;
+  width:900px;
+  height:900px;
+  top:50%;
+  left:50%;
+  transform:translate(-50%,-50%) rotate(-25deg);
+  background:radial-gradient(ellipse at center,
+    rgba(255,255,255,.35) 0%,
+    rgba(170,120,255,.25) 12%,
+    rgba(80,170,255,.18) 28%,
+    rgba(255,80,180,.12) 42%,
+    transparent 65%);
+  filter:blur(18px);
+  opacity:.75;
+  z-index:-2;
+  animation:girarGalaxia 80s linear infinite;
+}
+
+@keyframes girarGalaxia{
+  from{transform:translate(-50%,-50%) rotate(0deg)}
+  to{transform:translate(-50%,-50%) rotate(360deg)}
+}
+
+.nebulosaAzul{
+  position:fixed;
+  width:550px;
+  height:550px;
+  right:-120px;
+  top:15%;
+  border-radius:50%;
+  background:radial-gradient(circle,rgba(0,190,255,.35),transparent 70%);
+  filter:blur(45px);
+  z-index:-2;
+  animation:flotarNebulosa 8s ease-in-out infinite alternate;
+}
+
+.nebulosaRosa{
+  position:fixed;
+  width:600px;
+  height:600px;
+  left:-160px;
+  bottom:5%;
+  border-radius:50%;
+  background:radial-gradient(circle,rgba(255,80,200,.28),transparent 70%);
+  filter:blur(50px);
+  z-index:-2;
+  animation:flotarNebulosa 10s ease-in-out infinite alternate-reverse;
+}
+
+@keyframes flotarNebulosa{
+  from{transform:translateY(0) scale(1)}
+  to{transform:translateY(-35px) scale(1.08)}
+}
 </style>
 </head>
 
 <body>
 
 <div class="estrellas"></div>
+<div class="galaxia"></div>
+<div class="nebulosaAzul"></div>
+<div class="nebulosaRosa"></div>
 <div class="nebula"></div>
 
 <section class="bienvenida">
   <div class="contenido bienvenidaCaja">
-    <p class="miniTexto">Hola Maiberth...</p>
+    <p class="miniTexto">Hola Amorcito...</p>
 
-    <h1>🌌 Antes de continuar</h1>
+    <h1> Antes de continuar</h1>
 
     <p>
       quiero invitarte a recorrer un pequeño universo que hice para ti,
-      con recuerdos, estrellas, sueños y todo el amor que siento por ti.
+      con recuerdos, estrellas, sueños y todo el amor que siento por usted.
     </p>
 
     <p>
@@ -560,7 +664,8 @@ border-radius:20px;
     </p>
     <p>
       Pero el universo ya estaba haciendo su trabajo. A finales del 2025 empezamos a coincidir,
-      a conversar, a acercarnos poco a poco… hasta que el 1 de enero de 2026 nació lo más bonito:
+      a conversar, a acercarnos poco a poco… hasta que el 1 de enero de 2026 nació lo más bonito 
+      que pueda existir en este universo:
       nosotros.
     </p>
   </div>
@@ -627,7 +732,7 @@ border-radius:20px;
   onclick="abrirRecuerdo(
   'fotos/4967658148239969714.jpg',
   '⭐ El primer Te Amo',
-  'Ese día querías decirme algo, pero no te animabas. Hasta que finalmente me dijiste que me amabas.')">
+  'Ese día quería decirme algo, pero no se animaba. Hasta que finalmente me dijo por un mensaje que me amaba o eso recuerdo segun yoni.')">
   ⭐
   </button>
 
@@ -635,7 +740,7 @@ border-radius:20px;
   onclick="abrirRecuerdo(
   'fotos/4967658148239969715.jpg',
   '⭐ Los chocolates',
-  'Cuando fuiste a pedir permiso a mi mamá llevaste chocolates y temblabas tanto que terminamos riéndonos todos.')">
+  'Cuando fue a pedir permiso a mi mami y le llevo chocolates y temblaba tanto que terminamos riéndonos, no me voy a olvidar nunca ese momento.')">
   ⭐
   </button>
 
@@ -643,7 +748,8 @@ border-radius:20px;
   onclick="abrirRecuerdo(
   'fotos/4967658148239969719.jpg',
   '⭐ Nuestro futuro',
-  'Casarnos, construir nuestro hogar, formar una familia y compartir una vida juntos.')">
+  'hablar sobre Casarnos, construir nuestro hogar, formar una familia y compartir una vida juntos me hace demasiado feliz , 
+    porq realmente anhelo todo eso que platicamos y solo usted y yo sabemos .')">
   ⭐
   </button>
 
@@ -654,9 +760,7 @@ border-radius:20px;
   <h3 id="tituloRecuerdo"></h3>
   <p id="textoRecuerdo"></p>
 </div>
-```
-
-  </div>
+ </div>
 </section>
 <section>
   <div class="contenido">
@@ -736,7 +840,22 @@ border-radius:20px;
     </div>
   </div>
 </section>
+<section class="seccion-musica">
+  <div class="contenido musicaCaja">
+    <h2>🎵 Nuestra canción</h2>
+    <p>
+      Hay canciones que parecen escritas para ciertas historias...
+      y esta siempre me hará pensar en ti.
+    </p>
 
+    <h3>Elvis Presley</h3>
+    <p><strong>Can't Help Falling In Love</strong></p>
+
+    <a href="https://www.youtube.com/results?search_query=Elvis+Presley+Can%27t+Help+Falling+In+Love" target="_blank">
+      <button class="botonMusica">▶ Escuchar nuestra canción</button>
+    </a>
+  </div>
+</section>
 <section>
   <div class="contenido">
     <h2>⏳ Nuestra próxima cercanía</h2>
@@ -752,11 +871,12 @@ border-radius:20px;
       Aunque nos separen miles de kilómetros, seguimos orbitando el mismo universo.
     </p>
     <p>
-      Feliz aniversario, Maiberth.  
+      Feliz aniversario, Amor de mi vida.  
       Desde el 1 de enero de 2026, mi universo tiene tu nombre.
     </p>
   </div>
 </section>
+
 
 <script>
   function abrirRecuerdo(foto,titulo,texto){
@@ -847,9 +967,8 @@ function cambiarFoto(direccion){
 setInterval(function(){
   cambiarFoto(1);
 }, 3500);
+  mostrarFotoCarrusel();
 </script>
-<a href=https://youtu.be/NMrGN8a_5C0 target="_blank">
-  <button>🎵 Escuchar nuestra canción</button>
-</a>
+
 </body>
 </html>
