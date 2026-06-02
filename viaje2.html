@@ -520,6 +520,22 @@ border-radius:20px;
   cursor:pointer;
   color:white;
 }
+  .seccion-musica{
+  min-height:100vh;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+}
+
+.musicaCaja{
+  text-align:center;
+}
+
+.botonMusica{
+  display:inline-block;
+  position:static;
+  margin-top:25px;
+}
 </style>
 </head>
 
@@ -734,8 +750,8 @@ border-radius:20px;
     </div>
   </div>
 </section>
-<section>
-  <div class="contenido">
+<section class="seccion-musica">
+  <div class="contenido musicaCaja">
     <h2>🎵 Nuestra canción</h2>
     <p>
       Hay canciones que parecen escritas para ciertas historias...
@@ -746,7 +762,7 @@ border-radius:20px;
     <p><strong>Can't Help Falling In Love</strong></p>
 
     <a href="https://www.youtube.com/results?search_query=Elvis+Presley+Can%27t+Help+Falling+In+Love" target="_blank">
-      <button>▶ Escuchar nuestra canción</button>
+      <button class="botonMusica">▶ Escuchar nuestra canción</button>
     </a>
   </div>
 </section>
