@@ -51,11 +51,30 @@ section{
   z-index:-3;
 }
 
-@keyframes mover{
-  from{background-position:0 0}
-  to{background-position:400px 600px}
+@keyframes moverGalaxia{
+  from{
+    background-position:
+      0 0,
+      0 0,
+      0 0,
+      0 0,
+      0 0,
+      0 0,
+      0 0,
+      0 0;
+  }
+  to{
+    background-position:
+      600px 900px,
+      -500px 700px,
+      400px -600px,
+      -300px -500px,
+      0 0,
+      0 0,
+      0 0,
+      0 0;
+  }
 }
-
 .nebula{
   position:fixed;
   width:600px;
@@ -548,12 +567,69 @@ border-radius:20px;
   position:static;
   margin-top:25px;
 }
+  .galaxia{
+  position:fixed;
+  width:900px;
+  height:900px;
+  top:50%;
+  left:50%;
+  transform:translate(-50%,-50%) rotate(-25deg);
+  background:radial-gradient(ellipse at center,
+    rgba(255,255,255,.35) 0%,
+    rgba(170,120,255,.25) 12%,
+    rgba(80,170,255,.18) 28%,
+    rgba(255,80,180,.12) 42%,
+    transparent 65%);
+  filter:blur(18px);
+  opacity:.75;
+  z-index:-2;
+  animation:girarGalaxia 80s linear infinite;
+}
+
+@keyframes girarGalaxia{
+  from{transform:translate(-50%,-50%) rotate(0deg)}
+  to{transform:translate(-50%,-50%) rotate(360deg)}
+}
+
+.nebulosaAzul{
+  position:fixed;
+  width:550px;
+  height:550px;
+  right:-120px;
+  top:15%;
+  border-radius:50%;
+  background:radial-gradient(circle,rgba(0,190,255,.35),transparent 70%);
+  filter:blur(45px);
+  z-index:-2;
+  animation:flotarNebulosa 8s ease-in-out infinite alternate;
+}
+
+.nebulosaRosa{
+  position:fixed;
+  width:600px;
+  height:600px;
+  left:-160px;
+  bottom:5%;
+  border-radius:50%;
+  background:radial-gradient(circle,rgba(255,80,200,.28),transparent 70%);
+  filter:blur(50px);
+  z-index:-2;
+  animation:flotarNebulosa 10s ease-in-out infinite alternate-reverse;
+}
+
+@keyframes flotarNebulosa{
+  from{transform:translateY(0) scale(1)}
+  to{transform:translateY(-35px) scale(1.08)}
+}
 </style>
 </head>
 
 <body>
 
 <div class="estrellas"></div>
+<div class="galaxia"></div>
+<div class="nebulosaAzul"></div>
+<div class="nebulosaRosa"></div>
 <div class="nebula"></div>
 
 <section class="bienvenida">
