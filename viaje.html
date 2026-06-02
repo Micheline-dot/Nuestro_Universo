@@ -378,29 +378,64 @@ width:100%;
 max-width:420px;
 border-radius:20px;
 }
-.album{
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
-  gap:18px;
+.carrusel{
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  gap:20px;
   margin-top:30px;
 }
 
-.album img{
+.marcoCarrusel img{
   width:100%;
-  height:230px;
+  max-width:520px;
+  height:420px;
   object-fit:cover;
-  border-radius:22px;
+  border-radius:28px;
+  border:2px solid rgba(255,255,255,.4);
+  box-shadow:0 0 45px rgba(150,170,255,.7);
   cursor:pointer;
-  border:2px solid rgba(255,255,255,.35);
-  box-shadow:0 0 25px rgba(150,170,255,.45);
-  transition:.4s;
+  animation:aparecerFoto .7s ease;
 }
 
-.album img:hover{
-  transform:scale(1.07);
-  box-shadow:0 0 45px rgba(255,255,255,.85);
+.flecha{
+  width:55px;
+  height:55px;
+  border-radius:50%;
+  border:none;
+  background:rgba(255,255,255,.15);
+  color:white;
+  font-size:42px;
+  cursor:pointer;
+  box-shadow:0 0 25px rgba(255,255,255,.35);
 }
 
+.flecha:hover{
+  transform:scale(1.12);
+}
+
+.textoCarrusel{
+  margin-top:18px;
+  font-size:18px;
+  color:#dbe2ff;
+}
+
+@keyframes aparecerFoto{
+  from{opacity:0;transform:scale(.96)}
+  to{opacity:1;transform:scale(1)}
+}
+
+@media(max-width:600px){
+  .marcoCarrusel img{
+    height:330px;
+  }
+
+  .flecha{
+    width:45px;
+    height:45px;
+    font-size:34px;
+  }
+}
 .visorFoto{
   display:none;
   position:fixed;
@@ -573,19 +608,17 @@ border-radius:20px;
       siguen brillando en nuestra historia. ✨
     </p>
 
-    <div class="album">
-      <img src="fotos/4967658148239969714.jpg" onclick="abrirFoto(this.src)">
-      <img src="fotos/4967658148239969715.jpg" onclick="abrirFoto(this.src)">
-      <img src="fotos/4967658148239969716.jpg" onclick="abrirFoto(this.src)">
-      <img src="fotos/4967658148239969717.jpg" onclick="abrirFoto(this.src)">
-      <img src="fotos/4967658148239969718.jpg" onclick="abrirFoto(this.src)">
-      <img src="fotos/4967658148239969719.jpg" onclick="abrirFoto(this.src)">
-      <img src="fotos/4967658148239969720.jpg" onclick="abrirFoto(this.src)">
-      <img src="fotos/4967658148239969721.jpg" onclick="abrirFoto(this.src)">
-      <img src="fotos/4967658148239969722.jpg" onclick="abrirFoto(this.src)">
-      <img src="fotos/4967658148239969723.jpg" onclick="abrirFoto(this.src)">
-      <img src="fotos/4967658148239969724.jpg" onclick="abrirFoto(this.src)">
-    </div>
+   <div class="carrusel">
+  <button class="flecha" onclick="cambiarFoto(-1)">‹</button>
+
+  <div class="marcoCarrusel">
+    <img id="fotoCarrusel" src="fotos/4967658148239969714.jpg" onclick="abrirFoto(this.src)">
+  </div>
+
+  <button class="flecha" onclick="cambiarFoto(1)">›</button>
+</div>
+
+<p id="textoCarrusel" class="textoCarrusel">1 / 11</p>
   </div>
 </section>
 
@@ -689,6 +722,46 @@ setInterval(function(){
 function cerrarFoto(){
   document.getElementById("visorFoto").style.display="none";
 }
+  const fotosCarrusel = [
+  "fotos/4967658148239969714.jpg",
+  "fotos/4967658148239969715.jpg",
+  "fotos/4967658148239969716.jpg",
+  "fotos/4967658148239969717.jpg",
+  "fotos/4967658148239969718.jpg",
+  "fotos/4967658148239969719.jpg",
+  "fotos/4967658148239969720.jpg",
+  "fotos/4967658148239969721.jpg",
+  "fotos/4967658148239969722.jpg",
+  "fotos/4967658148239969723.jpg",
+  "fotos/4967658148239969724.jpg"
+];
+
+let fotoActual = 0;
+
+function mostrarFotoCarrusel(){
+  const img = document.getElementById("fotoCarrusel");
+  img.src = fotosCarrusel[fotoActual];
+  document.getElementById("textoCarrusel").innerHTML =
+    (fotoActual + 1) + " / " + fotosCarrusel.length;
+}
+
+function cambiarFoto(direccion){
+  fotoActual = fotoActual + direccion;
+
+  if(fotoActual < 0){
+    fotoActual = fotosCarrusel.length - 1;
+  }
+
+  if(fotoActual >= fotosCarrusel.length){
+    fotoActual = 0;
+  }
+
+  mostrarFotoCarrusel();
+}
+
+setInterval(function(){
+  cambiarFoto(1);
+}, 3500);
 </script>
 <a href=https://youtu.be/NMrGN8a_5C0 target="_blank">
   <button>🎵 Escuchar nuestra canción</button>
