@@ -26,30 +26,7 @@ section{
   position:relative;
 }
 
-.estrellas{
-  position:fixed;
-  inset:0;
-  background:
-    radial-gradient(circle at 50% 50%, rgba(255,255,255,.9) 1px, transparent 2px),
-    radial-gradient(circle at 20% 30%, rgba(120,180,255,.8) 1px, transparent 3px),
-    radial-gradient(circle at 80% 20%, rgba(255,180,255,.7) 1px, transparent 3px),
-    radial-gradient(circle at 30% 80%, rgba(180,120,255,.7) 1px, transparent 3px),
-    radial-gradient(ellipse at 30% 40%, rgba(116,68,255,.45), transparent 35%),
-    radial-gradient(ellipse at 70% 60%, rgba(0,200,255,.25), transparent 35%),
-    radial-gradient(ellipse at 50% 50%, rgba(255,80,180,.18), transparent 40%),
-    linear-gradient(120deg,#020014,#050028,#14003d,#020014);
-  background-size:
-    90px 90px,
-    140px 140px,
-    190px 190px,
-    240px 240px,
-    100% 100%,
-    100% 100%,
-    100% 100%,
-    100% 100%;
-  animation:moverGalaxia 35s linear infinite;
-  z-index:-3;
-}
+
 
 @keyframes moverGalaxia{
   from{
@@ -92,14 +69,16 @@ section{
   from{transform:translateY(0)}
   to{transform:translateY(40px)}
 }
-
 .contenido{
   max-width:900px;
-  background:rgba(255,255,255,.08);
-  padding:35px;
-  border-radius:30px;
-  backdrop-filter:blur(10px);
-  box-shadow:0 0 40px #7b8cff55;
+  background:rgba(8,10,38,.72);
+  padding:45px;
+  border-radius:32px;
+  backdrop-filter:blur(14px);
+  border:1px solid rgba(170,130,255,.45);
+  box-shadow:
+    0 0 35px rgba(120,90,255,.65),
+    inset 0 0 40px rgba(255,255,255,.05);
 }
 .bienvenidaCaja{
   animation:entrada 2s ease;
@@ -621,6 +600,128 @@ border-radius:20px;
   from{transform:translateY(0) scale(1)}
   to{transform:translateY(-35px) scale(1.08)}
 }
+  .estrellas{
+  position:fixed;
+  inset:0;
+  z-index:-5;
+  background:
+    radial-gradient(circle at 10% 20%, white 0 1px, transparent 2px),
+    radial-gradient(circle at 30% 80%, #9ed8ff 0 1px, transparent 2px),
+    radial-gradient(circle at 70% 30%, #ffd6ff 0 1px, transparent 2px),
+    radial-gradient(circle at 90% 60%, white 0 1px, transparent 2px),
+    linear-gradient(135deg,#02000f,#070025,#160033,#02000f);
+  background-size:80px 80px,130px 130px,180px 180px,240px 240px,100%;
+  animation:moverEstrellas 45s linear infinite;
+}
+
+@keyframes moverEstrellas{
+  from{background-position:0 0,0 0,0 0,0 0,0 0}
+  to{background-position:900px 700px,-800px 600px,600px -700px,-500px -600px,0 0}
+}
+
+.galaxiaCodigo{
+  position:fixed;
+  width:900px;
+  height:520px;
+  top:12%;
+  right:-120px;
+  border-radius:50%;
+  z-index:-4;
+  background:
+    radial-gradient(ellipse at center,
+      rgba(255,255,255,.95) 0%,
+      rgba(255,210,255,.75) 5%,
+      rgba(180,90,255,.45) 13%,
+      rgba(40,140,255,.32) 24%,
+      rgba(255,80,180,.22) 36%,
+      transparent 62%);
+  filter:blur(2px);
+  transform:rotate(-18deg);
+  animation:girarGalaxia 70s linear infinite;
+}
+
+.galaxiaCodigo::before,
+.galaxiaCodigo::after{
+  content:"";
+  position:absolute;
+  inset:0;
+  border-radius:50%;
+  background:
+    conic-gradient(
+      from 20deg,
+      transparent 0deg,
+      rgba(120,80,255,.0) 35deg,
+      rgba(130,80,255,.45) 70deg,
+      rgba(255,90,210,.55) 105deg,
+      transparent 145deg,
+      rgba(80,170,255,.35) 210deg,
+      rgba(255,255,255,.25) 250deg,
+      transparent 310deg
+    );
+  filter:blur(18px);
+}
+
+.galaxiaCodigo::after{
+  transform:scale(.72) rotate(45deg);
+  filter:blur(10px);
+  opacity:.75;
+}
+
+@keyframes girarGalaxia{
+  from{transform:rotate(-18deg)}
+  to{transform:rotate(342deg)}
+}
+
+.nebulosa{
+  position:fixed;
+  border-radius:50%;
+  filter:blur(55px);
+  z-index:-4;
+  animation:flotarNebulosa 9s ease-in-out infinite alternate;
+}
+
+.nebulosa1{
+  width:700px;
+  height:700px;
+  left:-180px;
+  bottom:-120px;
+  background:
+    radial-gradient(circle,rgba(255,64,200,.38),transparent 65%);
+}
+
+.nebulosa2{
+  width:650px;
+  height:650px;
+  right:-170px;
+  bottom:-80px;
+  background:
+    radial-gradient(circle,rgba(0,180,255,.30),transparent 70%);
+  animation-delay:2s;
+}
+
+@keyframes flotarNebulosa{
+  from{transform:translateY(0) scale(1)}
+  to{transform:translateY(-35px) scale(1.08)}
+}
+
+.polvoEstelar{
+  position:fixed;
+  inset:0;
+  z-index:-3;
+  pointer-events:none;
+  background:
+    radial-gradient(circle at 15% 25%, rgba(255,255,255,.9) 0 2px, transparent 4px),
+    radial-gradient(circle at 45% 75%, rgba(120,200,255,.8) 0 2px, transparent 5px),
+    radial-gradient(circle at 80% 45%, rgba(255,150,240,.9) 0 2px, transparent 5px),
+    radial-gradient(circle at 65% 20%, rgba(255,255,255,.8) 0 1px, transparent 4px);
+  background-size:420px 420px;
+  animation:brillarPolvo 4s ease-in-out infinite alternate;
+}
+
+@keyframes brillarPolvo{
+  from{opacity:.35}
+  to{opacity:.9}
+}
 </style>
 </head>
 
@@ -631,6 +732,10 @@ border-radius:20px;
 <div class="nebulosaAzul"></div>
 <div class="nebulosaRosa"></div>
 <div class="nebula"></div>
+<div class="galaxiaCodigo"></div>
+<div class="nebulosa nebulosa1"></div>
+<div class="nebulosa nebulosa2"></div>
+<div class="polvoEstelar"></div>
 
 <section class="bienvenida">
   <div class="contenido bienvenidaCaja">
