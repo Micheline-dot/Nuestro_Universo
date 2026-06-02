@@ -1,1 +1,869 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>El universo que encontré en ti 💙</title>
+
+<style>
+*{box-sizing:border-box}
+
+body{
+  margin:0;
+  font-family:'Segoe UI',Arial,sans-serif;
+  background:#020014;
+  color:white;
+  overflow-x:hidden;
+}
+
+section{
+  min-height:100vh;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  text-align:center;
+  padding:60px 20px;
+  position:relative;
+}
+
+.estrellas{
+  position:fixed;
+  inset:0;
+  background:
+    radial-gradient(circle at 20% 20%,#ffffff99 1px,transparent 2px),
+    radial-gradient(circle at 80% 30%,#ffffff88 1px,transparent 2px),
+    radial-gradient(circle at 50% 70%,#ffffff77 1px,transparent 2px),
+    linear-gradient(to bottom,#020014,#05052e,#110433);
+  background-size:120px 120px,180px 180px,240px 240px,100%;
+  animation:mover 25s linear infinite;
+  z-index:-3;
+}
+
+@keyframes mover{
+  from{background-position:0 0}
+  to{background-position:400px 600px}
+}
+
+.nebula{
+  position:fixed;
+  width:600px;
+  height:600px;
+  border-radius:50%;
+  background:radial-gradient(circle,#7b2cff55,transparent 70%);
+  filter:blur(40px);
+  top:10%;
+  left:5%;
+  z-index:-2;
+  animation:flotar 8s ease-in-out infinite alternate;
+}
+
+@keyframes flotar{
+  from{transform:translateY(0)}
+  to{transform:translateY(40px)}
+}
+
+.contenido{
+  max-width:900px;
+  background:rgba(255,255,255,.08);
+  padding:35px;
+  border-radius:30px;
+  backdrop-filter:blur(10px);
+  box-shadow:0 0 40px #7b8cff55;
+}
+.bienvenidaCaja{
+  animation:entrada 2s ease;
+}
+
+.miniTexto{
+  font-size:26px;
+  color:#dbe2ff;
+  letter-spacing:2px;
+}
+
+@keyframes entrada{
+  from{
+    opacity:0;
+    transform:scale(.9) translateY(40px);
+  }
+  to{
+    opacity:1;
+    transform:scale(1) translateY(0);
+  }
+}
+h1{
+  font-size:55px;
+  margin:10px 0;
+}
+
+h2{
+  font-size:38px;
+  color:#cdd6ff;
+}
+
+p{
+  font-size:22px;
+  line-height:1.6;
+}
+
+button{
+  padding:15px 30px;
+  border:none;
+  border-radius:40px;
+  background:linear-gradient(90deg,#6b7cff,#ba68ff);
+  color:white;
+  font-size:18px;
+  cursor:pointer;
+  box-shadow:0 0 25px #8b8cffaa;
+}
+
+.universo-planetas{
+  position:relative;
+  height:430px;
+  margin-top:40px;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  overflow:hidden;
+  border-radius:35px;
+  background:
+    radial-gradient(circle at center,#ffffff18,transparent 65%),
+    radial-gradient(circle at 20% 30%,#9b6dff25,transparent 30%),
+    radial-gradient(circle at 80% 70%,#5ccfff25,transparent 30%);
+}
+
+.orbita{
+  position:absolute;
+  border:1px solid rgba(255,255,255,.25);
+  border-radius:50%;
+  animation:girar 18s linear infinite;
+}
+
+.orbita1{
+  width:340px;
+  height:170px;
+}
+
+.orbita2{
+  width:470px;
+  height:230px;
+  animation-duration:26s;
+}
+
+@keyframes girar{
+  from{transform:rotate(0deg)}
+  to{transform:rotate(360deg)}
+}
+
+.planetaNuevo{
+  position:absolute;
+  width:150px;
+  height:150px;
+  border-radius:50%;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  font-weight:bold;
+  color:white;
+  font-size:18px;
+  box-shadow:0 0 45px rgba(255,255,255,.55);
+}
+
+.planetaNuevo span{
+  background:rgba(0,0,0,.35);
+  padding:8px 14px;
+  border-radius:20px;
+}
+
+.planetaMicheline{
+  left:8%;
+  background:
+    radial-gradient(circle at 30% 30%,#ffd1ef,#ff69c7 35%,#7b2cff 70%,#17002e);
+  animation:acercarMicheline 6s ease-in-out infinite alternate;
+}
+
+.planetaMaiberth{
+  right:8%;
+  background:
+    radial-gradient(circle at 30% 30%,#b7f5ff,#4c8dff 35%,#1b2fff 70%,#020b3d);
+  animation:acercarMaiberth 6s ease-in-out infinite alternate;
+}
+
+@keyframes acercarMicheline{
+  from{left:8%; transform:translateY(25px)}
+  to{left:34%; transform:translateY(-15px)}
+}
+
+@keyframes acercarMaiberth{
+  from{right:8%; transform:translateY(-25px)}
+  to{right:34%; transform:translateY(15px)}
+}
+
+.corazonEspacial{
+  position:absolute;
+  font-size:55px;
+  animation:latir 1.5s ease-in-out infinite;
+  filter:drop-shadow(0 0 25px #9bbcff);
+}
+
+@keyframes latir{
+  0%,100%{transform:scale(1)}
+  50%{transform:scale(1.25)}
+}
+
+.frase-planetas{
+  margin-top:30px;
+  font-style:italic;
+  color:#e1e6ff;
+}
+
+@media(max-width:600px){
+  .universo-planetas{
+    height:360px;
+  }
+
+  .planetaNuevo{
+    width:105px;
+    height:105px;
+    font-size:14px;
+  }
+
+  @keyframes acercarMicheline{
+    from{left:4%; transform:translateY(25px)}
+    to{left:27%; transform:translateY(-10px)}
+  }
+
+  @keyframes acercarMaiberth{
+    from{right:4%; transform:translateY(-25px)}
+    to{right:27%; transform:translateY(10px)}
+  }
+}
+.tarjetas{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+  gap:20px;
+  margin-top:30px;
+}
+
+.tarjeta{
+  background:rgba(255,255,255,.12);
+  padding:25px;
+  border-radius:25px;
+  border:1px solid #ffffff33;
+}
+.constelacion{
+  position:relative;
+  height:420px;
+  margin-top:30px;
+  border-radius:30px;
+  background:radial-gradient(circle,#ffffff12,transparent 70%);
+  overflow:hidden;
+}
+
+.estrellaBtn{
+  position:absolute;
+  background:none;
+  border:none;
+  font-size:42px;
+  cursor:pointer;
+  animation:pulso 1.8s infinite alternate;
+  box-shadow:none;
+}
+
+.estrellaBtn:nth-child(1){top:15%;left:15%}
+.estrellaBtn:nth-child(2){top:55%;left:25%}
+.estrellaBtn:nth-child(3){top:25%;left:48%}
+.estrellaBtn:nth-child(4){top:65%;left:62%}
+.estrellaBtn:nth-child(5){top:18%;left:78%}
+
+@keyframes pulso{
+  from{transform:scale(1);filter:drop-shadow(0 0 5px white)}
+  to{transform:scale(1.25);filter:drop-shadow(0 0 20px #fff)}
+}
+
+.recuerdo{
+  display:none;
+  margin-top:30px;
+  padding:25px;
+  border-radius:25px;
+  background:rgba(255,255,255,.15);
+  animation:aparecer .8s ease;
+}
+
+.recuerdo img{
+  width:100%;
+  max-width:420px;
+  border-radius:25px;
+  box-shadow:0 0 35px #ffffff77;
+}
+
+@keyframes aparecer{
+  from{opacity:0;transform:translateY(20px)}
+  to{opacity:1;transform:translateY(0)}
+}
+.instruccionLuna{
+  color:#e5e8ff;
+  font-style:italic;
+}
+
+.lunaMagica{
+  position:relative;
+  width:190px;
+  height:190px;
+  margin:35px auto;
+  border-radius:50%;
+  cursor:pointer;
+  background:
+    radial-gradient(circle at 35% 30%,#ffffff,#eeeeff 35%,#b8b8c9 70%,#777788);
+  box-shadow:
+    0 0 35px #ffffff,
+    0 0 80px #cdd6ff,
+    0 0 130px #8b8cff;
+  animation:flotarLuna 3s ease-in-out infinite alternate;
+}
+
+.brilloLuna{
+  position:absolute;
+  inset:-25px;
+  border-radius:50%;
+  background:radial-gradient(circle,#ffffff55,transparent 70%);
+  animation:pulsoLuna 2s infinite alternate;
+}
+
+@keyframes flotarLuna{
+  from{transform:translateY(0)}
+  to{transform:translateY(-18px)}
+}
+
+@keyframes pulsoLuna{
+  from{opacity:.4;transform:scale(1)}
+  to{opacity:1;transform:scale(1.15)}
+}
+
+.cartaMagica{
+  display:none;
+  margin-top:35px;
+  padding:35px;
+  border-radius:28px;
+  background:
+    linear-gradient(135deg,rgba(255,255,255,.20),rgba(255,255,255,.08));
+  border:1px solid rgba(255,255,255,.35);
+  box-shadow:0 0 45px rgba(255,255,255,.45);
+  animation:abrirCarta 1s ease;
+}
+
+.cartaMagica h3{
+  font-size:30px;
+  color:#ffffff;
+}
+
+.cartaMagica p{
+  font-size:21px;
+}
+
+.firma{
+  font-weight:bold;
+  color:#dbe2ff;
+}
+
+@keyframes abrirCarta{
+  from{
+    opacity:0;
+    transform:translateY(30px) scale(.95);
+  }
+  to{
+    opacity:1;
+    transform:translateY(0) scale(1);
+  }
+}
+
+.final{
+  font-size:30px;
+  font-weight:bold;
+  color:#fff;
+}
+
+@media(max-width:600px){
+  h1{font-size:38px}
+  h2{font-size:30px}
+  p{font-size:18px}
+}
+  .constelacion{
+position:relative;
+height:420px;
+margin-top:30px;
+border-radius:35px;
+overflow:hidden;
+background:
+radial-gradient(circle,#ffffff12,transparent 70%);
+}
+
+.estrellaBtn{
+position:absolute;
+background:none;
+border:none;
+font-size:50px;
+cursor:pointer;
+animation:brillo 2s infinite alternate;
+}
+
+.estrellaBtn:nth-child(1){top:15%;left:15%;}
+.estrellaBtn:nth-child(2){top:55%;left:28%;}
+.estrellaBtn:nth-child(3){top:20%;left:50%;}
+.estrellaBtn:nth-child(4){top:65%;left:65%;}
+.estrellaBtn:nth-child(5){top:25%;left:80%;}
+
+@keyframes brillo{
+from{
+transform:scale(1);
+filter:drop-shadow(0 0 5px white);
+}
+to{
+transform:scale(1.3);
+filter:drop-shadow(0 0 20px white);
+}
+}
+
+.recuerdo{
+display:none;
+margin-top:25px;
+padding:25px;
+border-radius:25px;
+background:rgba(255,255,255,.12);
+}
+
+.recuerdo img{
+width:100%;
+max-width:420px;
+border-radius:20px;
+}
+.carrusel{
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  gap:20px;
+  margin-top:30px;
+}
+
+.marcoCarrusel img{
+  width:100%;
+  max-width:520px;
+  height:420px;
+  object-fit:cover;
+  border-radius:28px;
+  border:2px solid rgba(255,255,255,.4);
+  box-shadow:0 0 45px rgba(150,170,255,.7);
+  cursor:pointer;
+  animation:aparecerFoto .7s ease;
+}
+
+.flecha{
+  width:55px;
+  height:55px;
+  border-radius:50%;
+  border:none;
+  background:rgba(255,255,255,.15);
+  color:white;
+  font-size:42px;
+  cursor:pointer;
+  box-shadow:0 0 25px rgba(255,255,255,.35);
+}
+
+.flecha:hover{
+  transform:scale(1.12);
+}
+
+.textoCarrusel{
+  margin-top:18px;
+  font-size:18px;
+  color:#dbe2ff;
+}
+
+@keyframes aparecerFoto{
+  from{opacity:0;transform:scale(.96)}
+  to{opacity:1;transform:scale(1)}
+}
+
+@media(max-width:600px){
+  .marcoCarrusel img{
+    height:330px;
+  }
+
+  .flecha{
+    width:45px;
+    height:45px;
+    font-size:34px;
+  }
+}
+.visorFoto{
+  display:none;
+  position:fixed;
+  inset:0;
+  background:rgba(0,0,0,.88);
+  z-index:9999;
+  justify-content:center;
+  align-items:center;
+  padding:25px;
+}
+
+.visorFoto img{
+  max-width:90%;
+  max-height:85vh;
+  border-radius:25px;
+  box-shadow:0 0 60px rgba(255,255,255,.7);
+}
+
+.visorFoto span{
+  position:absolute;
+  top:25px;
+  right:40px;
+  font-size:55px;
+  cursor:pointer;
+  color:white;
+}
+</style>
+</head>
+
+<body>
+
+<div class="estrellas"></div>
+<div class="nebula"></div>
+
+<section class="bienvenida">
+  <div class="contenido bienvenidaCaja">
+    <p class="miniTexto">Hola Maiberth...</p>
+
+    <h1>🌌 Antes de continuar</h1>
+
+    <p>
+      quiero invitarte a recorrer un pequeño universo que hice para ti,
+      con recuerdos, estrellas, sueños y todo el amor que siento por ti.
+    </p>
+
+    <p>
+      Este viaje empieza aquí, pero habla de nosotros dos:
+      de Micheline y Maiberth, de la distancia, del destino
+      y de estos 5 meses orbitando juntos.
+    </p>
+
+    <button onclick="document.getElementById('historia').scrollIntoView({behavior:'smooth'})">
+      🚀 Iniciar nuestro viaje
+    </button>
+  </div>
+</section>
+
+<section id="historia">
+  <div class="contenido">
+    <h2>✨ Donde comenzó nuestra historia</h2>
+    <p>
+      Nos conocimos en un campamento a Tarija. Tal vez en ese momento no hablamos mucho,
+      tal vez solo éramos dos personas conocidas, cercanas en el mismo lugar pero todavía lejanas en el corazón.
+    </p>
+    <p>
+      Pero el universo ya estaba haciendo su trabajo. A finales del 2025 empezamos a coincidir,
+      a conversar, a acercarnos poco a poco… hasta que el 1 de enero de 2026 nació lo más bonito:
+      nosotros.
+    </p>
+  </div>
+</section>
+
+<section class="seccion-planetas">
+  <div class="contenido">
+    <h2>🪐 Dos planetas, una misma órbita</h2>
+
+    <p>
+      Micheline y Maiberth: dos mundos distintos,
+      separados por la distancia, pero unidos por una fuerza invisible
+      que ni el espacio puede romper.
+    </p>
+
+    <div class="universo-planetas">
+      <div class="orbita orbita1"></div>
+      <div class="orbita orbita2"></div>
+
+      <div class="planetaNuevo planetaMicheline">
+        <span>Micheline</span>
+      </div>
+
+      <div class="corazonEspacial">💙</div>
+
+      <div class="planetaNuevo planetaMaiberth">
+        <span>Maiberth</span>
+      </div>
+    </div>
+
+    <p class="frase-planetas">
+      La distancia existe para los cuerpos, no para las almas que se aman.
+    </p>
+  </div>
+</section>
+
+<section>
+  <div class="contenido">
+    <h2>🌠 Nuestra constelación de recuerdos</h2>
+<p>
+  Cada estrella guarda un momento especial de nuestra historia.
+  Tócalas una por una, Maiberth. ✨
+</p>
+
+<div class="constelacion">
+
+  <button class="estrellaBtn"
+  onclick="abrirRecuerdo(
+  'fotos/4967658148239969717.jpg',
+  '⭐ Campamento en Tarija',
+  'Aquí comenzó todo. Tal vez no hablamos mucho, pero el universo ya estaba preparando nuestro encuentro.')">
+  ⭐
+  </button>
+
+  <button class="estrellaBtn"
+  onclick="abrirRecuerdo(
+  'fotos/4967658148239969724.jpg',
+  '⭐ Finales de 2025',
+  'Empezamos a coincidir, a conversar y a conocernos de verdad. Poco a poco comenzamos a acercarnos.')">
+  ⭐
+  </button>
+
+  <button class="estrellaBtn"
+  onclick="abrirRecuerdo(
+  'fotos/4967658148239969714.jpg',
+  '⭐ El primer Te Amo',
+  'Ese día querías decirme algo, pero no te animabas. Hasta que finalmente me dijiste que me amabas.')">
+  ⭐
+  </button>
+
+  <button class="estrellaBtn"
+  onclick="abrirRecuerdo(
+  'fotos/4967658148239969715.jpg',
+  '⭐ Los chocolates',
+  'Cuando fuiste a pedir permiso a mi mamá llevaste chocolates y temblabas tanto que terminamos riéndonos todos.')">
+  ⭐
+  </button>
+
+  <button class="estrellaBtn"
+  onclick="abrirRecuerdo(
+  'fotos/4967658148239969719.jpg',
+  '⭐ Nuestro futuro',
+  'Casarnos, construir nuestro hogar, formar una familia y compartir una vida juntos.')">
+  ⭐
+  </button>
+
+</div>
+
+<div class="recuerdo" id="recuerdo">
+  <img id="fotoRecuerdo" src="">
+  <h3 id="tituloRecuerdo"></h3>
+  <p id="textoRecuerdo"></p>
+</div>
+
+</section>
+<section>
+  <div class="contenido">
+    <h2>📸 Nuestro Álbum Estelar</h2>
+    <p>
+      Algunas fotos son como estrellas: aunque pase el tiempo,
+      siguen brillando en nuestra historia. ✨
+    </p>
+
+   <div class="carrusel">
+  <button class="flecha" onclick="cambiarFoto(-1)">‹</button>
+
+  <div class="marcoCarrusel">
+    <img id="fotoCarrusel" src="fotos/4967658148239969714.jpg" onclick="abrirFoto(this.src)">
+  </div>
+
+  <button class="flecha" onclick="cambiarFoto(1)">›</button>
+</div>
+
+<p id="textoCarrusel" class="textoCarrusel">1 / 11</p>
+  </div>
+</section>
+
+<div class="visorFoto" id="visorFoto" onclick="cerrarFoto()">
+  <span>×</span>
+  <img id="fotoGrande" src="">
+</div>
+
+<section>
+  <div class="contenido">
+    <h2> Una Luna Mágica </h2>
+
+    <p>
+      Amorcito mío, hay palabras que no caben en una estrella…
+      por eso las guardé en la luna.
+    </p>
+
+    <p class="instruccionLuna">Toca la luna para leer mi carta ✨</p>
+
+    <div class="lunaMagica" onclick="mostrarCarta()">
+      <div class="brilloLuna"></div>
+    </div>
+
+    <div class="cartaMagica" id="carta">
+      <h3>Para el amor de mi vida , el mejor novio del universo 💙</h3>
+
+      <p>
+        Si pudiera viajar a cualquier rincón del universo,
+        seguiría eligiendo el lugar donde estés tú.
+      </p>
+
+      <p>
+        Amorcito mío gracias por estos 5 meses, por cada sonrisa, por cada abrazo,por cada llamada,por cada beso, por cada detalle,por el amor que me brinda,
+        por cada momento bonito y por hacerme sentir que incluso a la distancia que
+        seguimos tan cerca.
+      </p>
+
+      <p>
+        Desde aquel campamento en Tarija, sin saberlo,
+        el universo y Diosito ya estaban escribiendo algo para nosotros.
+      </p>
+
+      <p>
+        Hoy mi mayor sueño se ha hecho realidad, ese sueño es usted,pero aun falta cumplir el sueño del día 
+        en que nos juremos amor eterno en el altar ante los ojos de diosto sus papis, los mios, y todas las 
+        personas que formaron parte de nuestras vidas juntos , y que de alguna manera colaboraron en que esta 
+        hermosa historia empiece (las profes) podamos construir nuestra casa,nuestra familia, conseguir
+        nuestras propias cositas,con el estar juntos y ya no volver a separarnos
+        y sobre todo una vida estable juntos.
+      </p>
+
+      <p>
+        le amo infinitamente.
+      </p>
+
+      <p class="firma">— Micheline 🌌</p>
+    </div>
+  </div>
+</section>
+<section>
+  <div class="contenido">
+    <h2>🎵 Nuestra canción</h2>
+    <p>
+      Hay canciones que parecen escritas para ciertas historias...
+      y esta siempre me hará pensar en ti.
+    </p>
+
+    <h3>Elvis Presley</h3>
+    <p><strong>Can't Help Falling In Love</strong></p>
+
+    <a href="https://www.youtube.com/results?search_query=Elvis+Presley+Can%27t+Help+Falling+In+Love" target="_blank">
+      <button>▶ Escuchar nuestra canción</button>
+    </a>
+  </div>
+</section>
+<section>
+  <div class="contenido">
+    <h2>⏳ Nuestra próxima cercanía</h2>
+    <p>Tal vez nos veamos el 6 o 7 de junio, y mi corazón ya está contando los días.</p>
+    <p id="contador" class="final"></p>
+  </div>
+</section>
+
+<section>
+  <div class="contenido">
+    <h2>💫 5 meses orbitando juntos</h2>
+    <p class="final">
+      Aunque nos separen miles de kilómetros, seguimos orbitando el mismo universo.
+    </p>
+    <p>
+      Feliz aniversario, Maiberth.  
+      Desde el 1 de enero de 2026, mi universo tiene tu nombre.
+    </p>
+  </div>
+</section>
+
+
+<script>
+  function abrirRecuerdo(foto,titulo,texto){
+  document.getElementById("recuerdo").style.display="block";
+  document.getElementById("fotoRecuerdo").src=foto;
+  document.getElementById("tituloRecuerdo").innerHTML=titulo;
+  document.getElementById("textoRecuerdo").innerHTML=texto;
+}
+  function abrirRecuerdo(foto,titulo,texto){
+
+document.getElementById("recuerdo").style.display="block";
+
+document.getElementById("fotoRecuerdo").src=foto;
+
+document.getElementById("tituloRecuerdo").innerHTML=titulo;
+
+document.getElementById("textoRecuerdo").innerHTML=texto;
+}
+
+function mostrarCarta(){
+  document.getElementById("carta").style.display="block";
+}
+
+const fecha = new Date("June 7, 2026 00:00:00").getTime();
+
+setInterval(function(){
+  const ahora = new Date().getTime();
+  const distancia = fecha - ahora;
+
+  if(distancia < 0){
+    document.getElementById("contador").innerHTML = "Ya casi estamos juntos otra vez 💙";
+    return;
+  }
+
+  const dias = Math.floor(distancia / (1000 * 60 * 60 * 24));
+  const horas = Math.floor((distancia % (1000 * 60 * 60 * 24))/(1000 * 60 * 60));
+  const minutos = Math.floor((distancia % (1000 * 60 * 60))/(1000 * 60));
+  const segundos = Math.floor((distancia % (1000 * 60))/1000);
+
+  document.getElementById("contador").innerHTML =
+  dias + " días, " + horas + " horas, " + minutos + " minutos y " + segundos + " segundos 💙";
+},1000);
+  function abrirFoto(src){
+  document.getElementById("visorFoto").style.display="flex";
+  document.getElementById("fotoGrande").src=src;
+}
+
+function cerrarFoto(){
+  document.getElementById("visorFoto").style.display="none";
+}
+  const fotosCarrusel = [
+  "fotos/4967658148239969714.jpg",
+  "fotos/4967658148239969715.jpg",
+  "fotos/4967658148239969716.jpg",
+  "fotos/4967658148239969717.jpg",
+  "fotos/4967658148239969718.jpg",
+  "fotos/4967658148239969719.jpg",
+  "fotos/4967658148239969720.jpg",
+  "fotos/4967658148239969721.jpg",
+  "fotos/4967658148239969722.jpg",
+  "fotos/4967658148239969723.jpg",
+  "fotos/4967658148239969724.jpg"
+];
+
+let fotoActual = 0;
+
+function mostrarFotoCarrusel(){
+  const img = document.getElementById("fotoCarrusel");
+  img.src = fotosCarrusel[fotoActual];
+  document.getElementById("textoCarrusel").innerHTML =
+    (fotoActual + 1) + " / " + fotosCarrusel.length;
+}
+
+function cambiarFoto(direccion){
+  fotoActual = fotoActual + direccion;
+
+  if(fotoActual < 0){
+    fotoActual = fotosCarrusel.length - 1;
+  }
+
+  if(fotoActual >= fotosCarrusel.length){
+    fotoActual = 0;
+  }
+
+  mostrarFotoCarrusel();
+}
+
+setInterval(function(){
+  cambiarFoto(1);
+}, 3500);
+  mostrarFotoCarrusel();
+</script>
+
+</body>
+</html>
 
